@@ -31,12 +31,27 @@ python3 fault-agent-server/server.py --port 9001 --db /var/lib/fault-agent-serve
 python3 fault-agent-web/web.py --port 9002 --db /var/lib/fault-agent-server/reports.db &
 ```
 
+按照上述命令行，收集服务在9001端口，WEB界面在9002端口。
+
+9002端口请做限制仅仅允许自己访问。
+
+
 每台服务器上，/usr/src 目录下，测试运行，查看输出的是否正确
+
+支持 JSON 和 YAML 两种配置格式，选择其一即可：
+
+**JSON 格式：**
 ```
-git clone https://github.com/bg6cq/fault-agent
 cp config.json.sample config.json
 vi config.json # 修改 hostname、sysinfo、url 
-python /usr/src/fault-agent/fault-agent.py --config /usr/src/fault-agent/config.jason --oneshot
+python /usr/src/fault-agent/fault-agent.py --config /usr/src/fault-agent/config.json --oneshot
+```
+
+**YAML 格式：**
+```
+cp config.yaml.sample config.yaml
+vi config.yaml # 修改 hostname、sysinfo、url
+python /usr/src/fault-agent/fault-agent.py --config /usr/src/fault-agent/config.yaml --oneshot
 ```
 如果正常
 ```
