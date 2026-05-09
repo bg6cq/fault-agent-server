@@ -36,7 +36,11 @@ python3 fault-agent-web/web.py --port 9002 --db /var/lib/fault-agent-server/repo
 9002端口请做限制仅仅允许自己访问。
 
 
-每台服务器上，/usr/src 目录下，测试运行，查看输出的是否正确
+每台服务器上，/usr/src 目录下，
+```
+cd /usr/src
+git clone https://github.com/bg6cq/fault-agent
+```
 
 支持 JSON 和 YAML 两种配置格式，选择其一即可：
 
